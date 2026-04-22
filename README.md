@@ -183,7 +183,6 @@ Integrate GPU support for faster inference
 Replace local LLM with API-based models (OpenAI / Groq)
 Add frontend dashboard for visualization
 Implement Redis for distributed caching
-Add scoring benchmarks and evaluation metrics
 
 # Author
 
