@@ -11,6 +11,7 @@ def analyze_content(page_name, text_content):
     TASK 1: CONTENT AUDIT
     Identify specific improvements for clarity, grammar, tone, and engagement. 
     Identify missing content gaps (e.g., missing CTAs, social proof, or FAQs).
+    Give recommendations for new pages or sections that could enhance the brand's messaging and user experience.
 
     TASK 2: TONE ANALYSIS
     Rate the following metrics on a scale of 1 to 10 (where 10 is the highest):
@@ -18,6 +19,7 @@ def analyze_content(page_name, text_content):
     - Urgency: Does it encourage the user to act immediately?
     - Clarity: How easy is it for a 5th grader to understand?
     - Trust: Does the content build credibility and authority?
+    
 
     ### CONSTRAINTS:
     - Return ONLY a valid JSON object.

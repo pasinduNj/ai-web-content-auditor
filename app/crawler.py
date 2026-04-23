@@ -22,20 +22,20 @@ def extract_structured_content(html):
     """
     soup = BeautifulSoup(html, "html.parser")
 
-    # 1. Capture Metadata (High signal for Clarity & Readability)
+    # Capture Metadata (High signal for Clarity & Readability)
     meta_desc = soup.find("meta", attrs={"name": "description"})
     description = meta_desc["content"] if meta_desc else "No meta description"
 
-    # 2. Capture Key Headers (Core Message/Structure)
+    # Capture Key Headers (Core Message/Structure)
     headers = [h.get_text(strip=True) for h in soup.find_all(['h1', 'h2'])]
     header_str = " | ".join(headers[:5]) # Take top 5 headers
 
-    # 3. Capture Primary CTAs (Targeting 'missing or weak calls to action')
+    # Capture Primary CTAs (Targeting 'missing or weak calls to action')
     ctas = [a.get_text(strip=True) for a in soup.find_all(['a', 'button']) 
             if len(a.get_text(strip=True)) > 2 and len(a.get_text(strip=True)) < 30]
     cta_str = " | ".join(ctas[:6]) # Take top 6 potential CTAs
 
-    # 4. Clean Body Text (The Context)
+    # Clean Body Text (The Context)
     # Remove junk before getting body text
     for tag in soup(["script", "style", "noscript", "footer", "nav", "header"]):
         tag.decompose()
@@ -45,7 +45,7 @@ def extract_structured_content(html):
     clean_body = re.sub(r'\s+', ' ', raw_body)
 
     # Combine into a Semantic Summary
-    # This keeps the size small but the quality high
+  
     final_output = f"SUMMARY: {description} | HEADERS: {header_str} | CTAs: {cta_str} | BODY: {clean_body}"
     
     return final_output
@@ -80,7 +80,7 @@ async def crawl_website(start_url, max_pages=3):
             if not html:
                 continue
 
-            # Now using the structured extraction
+            
             structured_text = extract_structured_content(html)
             results[url] = structured_text
 

@@ -7,17 +7,17 @@ from app.cache import save_to_cache
 def process_website(url: str):
     print(f"STARTING ANALYSIS: {url} ")
     
-    # 1. URL Normalization
+    #  URL Normalization
     if not url.startswith("http"):
         url = "https://" + url
 
     try:
-        # 2. Run the async crawler
+        # Run the async crawler
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         results = loop.run_until_complete(crawl_website(url))
 
-        # 3. Structure the results
+        # Structure the results
         structured_data = structure_content(results)
         
         full_site_analysis = []
@@ -53,7 +53,7 @@ def process_website(url: str):
                 "results": analysis_output
             })
 
-        # --- 5. AGGREGATE SITE-WIDE BRAND HEALTH SUMMARY ---
+        # AGGREGATE SITE-WIDE BRAND HEALTH SUMMARY 
         total_pages = len(full_site_analysis)
         site_health = {"professionalism": 0, "urgency": 0, "clarity": 0, "trust": 0}
 
@@ -68,7 +68,7 @@ def process_website(url: str):
             for metric in site_health:
                 site_health[metric] = round(site_health[metric] / total_pages, 1)
 
-        # 6. Save final result to SQLite Cache with the new Scorecard
+        # Save final result to SQLite Cache with the new Scorecard
         final_payload = {
             "status": "Completed", 
             "site_health_summary": site_health,

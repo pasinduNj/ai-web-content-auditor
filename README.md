@@ -13,7 +13,7 @@ An intelligent, FastAPI-powered system designed to perform deep content audits, 
 
 ---
 
-# 🧰 Setup & Installation (Step-by-Step)
+# Setup & Installation (Step-by-Step)
 
 ## 1. Prerequisites
 
@@ -159,33 +159,32 @@ Structured Output (Scores + Insights)
 - The website contains sufficient textual content for analysis
 - Ollama is running locally and accessible
 - The Gemma model is already downloaded
-- Users provide valid URLs
 
 ---
 
 # Known Limitations
 
-Performance
+it is analyse only three pages
+
+stuctured output i develop for the JSON format
+
 Running Gemma 2B locally on CPU can be slow (20–60 seconds per page)
 
-Content Dependency:\*\*
 Pages with very little text may result in limited or fallback analysis
 
-No Real-Time Streaming:
 Results are processed asynchronously and not streamed live
 
-Scalability:
 Current implementation is suitable for local or small-scale usage (not optimized for high concurrency)
 
 # Future Improvements
 
+increase the structured output can enchance the user readablity
+develop analys oll pages
 Integrate GPU support for faster inference
 Replace local LLM with API-based models (OpenAI / Groq)
-Add frontend dashboard for visualization
+Add frontend dashboard for visualization and customerize for camparism URL (campare two websites)
 Implement Redis for distributed caching
 
 # Author
 
 Pasindu Jayasinghe
-Final Year Computer Science Student
-Uva Wellassa University

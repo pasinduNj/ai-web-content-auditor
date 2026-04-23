@@ -7,7 +7,7 @@ class URLRequest(BaseModel):
     @field_validator('url')
     @classmethod
     def validate_url_format(cls, v):
-        # Regular expression for basic URL validation
+        #  URL validation
         url_pattern = re.compile(
             r'^(https?:\/\/)?'  # http:// or https://
             r'([\da-z\.-]+)\.'  # domain
